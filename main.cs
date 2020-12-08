@@ -59,31 +59,21 @@ namespace Overwatch_wpf
 
                     using (var tesseract = new Tesseract.TesseractEngine(lngStr, langPath))
                     {
-                        // 文字を指定
                         tesseract.SetVariable("SEARCH", "1");
-
-                        // OCRの実行
                         Tesseract.Page page = tesseract.Process(bitmap24);
-
                         if (page.GetText().Contains("SEARCH") || page.GetText().Contains("TIME") || page.GetText().Contains("ELAPSED") || page.GetText().Contains("LEAGUE") || page.GetText().Contains("HIGHLIGHTS") || page.GetText().Contains("SOCIAL") || page.GetText().Contains("EXIT"))
                         {
                             count = 1;
                         }
                         else
                         {
-                            if (true)
-                            {
+                            DateTime dt = DateTime.Now;
+                            string result = dt.ToString("yyyy/MM/dd HH:mm:ss");
+                            string lnk = "https://maker.ifttt.com/trigger/match/with/key/xxxxxxxx/?value1=" + result;
 
-                                // ●プロセス起動情報の構築
-                                DateTime dt = DateTime.Now;
-
-                                string result = dt.ToString("yyyy/MM/dd HH:mm:ss");
-                                string lnk = "https://maker.ifttt.com/trigger/match/with/key/xxxxxxxx/?value1=" + result;
-
-                                System.Diagnostics.Process.Start(lnk);
-                                count = 3;
-                                Environment.Exit(0);
-                            }
+                            System.Diagnostics.Process.Start(lnk);
+                            count = 3;
+                            Environment.Exit(0);
                         }
                     }
                 }
