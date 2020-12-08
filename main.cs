@@ -40,17 +40,9 @@ namespace Overwatch_wpf
                 System.Diagnostics.Process[] processList = System.Diagnostics.Process.GetProcesses();
                 if (System.Windows.Clipboard.ContainsImage())
                 {
-
                     string lngStr = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), @"tesseract-ocr\\");
-
-                    //言語
                     string langPath = "eng";
-
-                    //画像ファイルを取得
-
                     var img = (Bitmap)System.Windows.Forms.Clipboard.GetImage();
-  
-                    //フォーマットの変換
                     var bitmap24 = new Bitmap(img.Width, img.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                     using (var gr = Graphics.FromImage(bitmap24))
                     {
