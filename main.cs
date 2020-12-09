@@ -32,8 +32,8 @@ namespace Overwatch_wpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int count = 0;
-            while (count <= 2)
+            int err_count = 0;
+            while (err_count < 2)
             {
                 Microsoft.VisualBasic.Interaction.AppActivate("Overwatch");
                 SendKeys.SendWait("{PRTSC}");
@@ -55,7 +55,7 @@ namespace Overwatch_wpf
                         Tesseract.Page page = tesseract.Process(bitmap24);
                         if (page.GetText().Contains("SEARCH") || page.GetText().Contains("TIME") || page.GetText().Contains("ELAPSED") || page.GetText().Contains("LEAGUE") || page.GetText().Contains("HIGHLIGHTS") || page.GetText().Contains("SOCIAL") || page.GetText().Contains("EXIT"))
                         {
-                            count = 1;
+                            err_count = 0;
                         }
                         else
                         {
@@ -64,7 +64,7 @@ namespace Overwatch_wpf
                             string lnk = "https://maker.ifttt.com/trigger/match/with/key/xxxxxxxx/?value1=" + result;
 
                             System.Diagnostics.Process.Start(lnk);
-                            count = 3;
+                            err_count += 1;
                             Environment.Exit(0);
                         }
                     }
