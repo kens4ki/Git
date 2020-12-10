@@ -58,19 +58,20 @@ namespace Overwatch_wpf
                             err_count = 0;
                         }
                         else
-                        {
-                            DateTime dt = DateTime.Now;
-                            string result = dt.ToString("yyyy/MM/dd HH:mm:ss");
-                            string lnk = "https://maker.ifttt.com/trigger/match/with/key/xxxxxxxx/?value1=" + result;
-
-                            System.Diagnostics.Process.Start(lnk);
+                        {          
                             err_count += 1;
-                            Environment.Exit(0);
                         }
                     }
                 }
                 Thread.Sleep(50000);
             }
+
+            DateTime dt = DateTime.Now;
+            string result = dt.ToString("yyyy/MM/dd HH:mm:ss");
+            string lnk = "https://maker.ifttt.com/trigger/match/with/key/xxxxxxxx/?value1=" + result;
+
+            System.Diagnostics.Process.Start(lnk);
+
             Environment.Exit(0);
 
         }
