@@ -7,5 +7,7 @@ csコード
 ## 詳細
 https://qiita.com/kensaki/items/9acef6456a741b00aa17
 ## 参考サイト
-画像変換に下記サイトをのコードを1部引用させて頂いております
+画像変換に下記サイトのコードを1部引用させて頂いております
 https://touch-sp.hatenablog.com/entry/2019/04/04/175054
+## 追記
+12/10:大幅な修正
